@@ -101,7 +101,7 @@ class Head(nn.Module):
     return out
 
 class MultiHeadAttention(nn.Module):
-  """ multiple heads of sekf-attention in parallel """
+  """ multiple heads of self-attention in parallel """
   def __init__(self, num_heads, head_size):
     super().__init__()
     self.heads=nn.ModuleList([Head(head_size) for _ in range(num_heads)])
@@ -174,6 +174,7 @@ class GPTLanguageModel(nn.Module):
     pos_emb=self.position_embedding_table(torch.arange(T, device=device)) #(T,C)
     x=tok_emb+pos_emb  
     x=self.blocks(x) 
+    x=self.ln_f(x)
     logits = self.lm_head(x) #(B, T, vocab_size )
     if targets is None:
       loss = None
