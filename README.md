@@ -11,6 +11,7 @@ I refered to Andrej Karpathy's demo of a GPT model as a foundation for this proj
 
 There are a bunch of things pertaining to this project that I would like to experiment with in future.
 - Currently the model works on word-level, thus the sentences generated may appear nonsensical. The next thing for me is to explore more advanced tokenization methods.
+- Try out SentencePiece
 - I also wish to train this model on different datasets to see how it performs. 
 
 
